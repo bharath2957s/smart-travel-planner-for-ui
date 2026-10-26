@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="540" viewBox="0 0 850 540">
+  <rect width="850" height="540" rx="20" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+
+  <!-- Top Blue Banner -->
+  <rect x="0" y="0" width="850" height="75" rx="20" fill="#1E3A8A"/>
+  <rect x="0" y="55" width="850" height="20" fill="#1E3A8A"/>
+  <text x="425" y="32" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">UNION OF INDIA / TRANSPORT DEPARTMENT</text>
+  <text x="425" y="58" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="bold" fill="#93C5FD" text-anchor="middle">KARNATAKA STATE · DRIVING LICENCE</text>
+
+  <!-- Licence No Banner -->
+  <rect x="40" y="90" width="770" height="42" rx="8" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
+  <text x="60" y="117" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1E40AF">DL NO: KA-14-2018-0049281</text>
+  <text x="500" y="117" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#047857">STATUS: ACTIVE / VALID</text>
+
+  <!-- Photo Box -->
+  <rect x="40" y="150" width="150" height="190" rx="8" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5"/>
+  <circle cx="115" cy="220" r="40" fill="#94A3B8"/>
+  <path d="M60,320 Q115,260 170,320 Z" fill="#64748B"/>
+  <text x="115" y="360" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">Rohan V. Deshmukh</text>
+
+  <!-- Central Field Grid -->
+  <text x="210" y="170" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#64748B">NAME:</text>
+  <text x="210" y="192" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="bold" fill="#0F172A">Rohan Vikram Deshmukh</text>
+
+  <text x="210" y="225" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#64748B">S/O (FATHER):</text>
+  <text x="210" y="245" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">Vikram Deshmukh</text>
+
+  <text x="210" y="280" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#64748B">DATE OF BIRTH:</text>
+  <text x="210" y="300" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">22-05-1990</text>
+
+  <text x="380" y="280" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#64748B">BLOOD GROUP:</text>
+  <text x="380" y="300" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="bold" fill="#DC2626">O+ve</text>
+
+  <text x="210" y="335" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#64748B">ADDRESS:</text>
+  <text x="210" y="355" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" fill="#1E293B">#88 Basaveshwara Nagar, Sagar Road,</text>
+  <text x="210" y="375" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Shivamogga, Karnataka - 577204</text>
+
+  <!-- Right Column: Validity and Categories -->
+  <rect x="540" y="150" width="270" height="235" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <text x="560" y="180" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#64748B">ISSUING AUTHORITY:</text>
+  <text x="560" y="200" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">RTO Shivamogga (KA-14)</text>
+
+  <text x="560" y="235" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#64748B">DATE OF ISSUE:</text>
+  <text x="560" y="255" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="bold" fill="#0F172A">12-06-2018</text>
+
+  <text x="560" y="290" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#64748B">VALID TILL (NT):</text>
+  <text x="560" y="310" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="bold" fill="#047857">11-06-2038</text>
+
+  <text x="560" y="345" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#64748B">VEHICLE CLASS (COV):</text>
+  <text x="560" y="370" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E3A8A">MCWG, LMV</text>
+
+  <!-- Chip and Footer -->
+  <rect x="40" y="415" width="770" height="90" rx="12" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="60" y="450" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">SMART CARD OPTICAL CHIP EMBEDDED</text>
+  <text x="60" y="475" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#64748B">Motor Vehicles Act, 1988 · Verified by Ministry of Road Transport and Highways (MoRTH)</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="540" viewBox="0 0 850 540">
+  <rect width="850" height="540" rx="16" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2"/>
+
+  <!-- Top Banner -->
+  <rect x="0" y="0" width="850" height="70" rx="16" fill="#065F46"/>
+  <rect x="0" y="50" width="850" height="20" fill="#065F46"/>
+  <text x="425" y="35" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">SCHENGEN VISA / RÉPUBLIQUE FRANÇAISE</text>
+  <text x="425" y="58" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#A7F3D0" text-anchor="middle">VISA DE COURT SÉJOUR / SHORT STAY TOURIST VISA</text>
+
+  <!-- Photo Box -->
+  <rect x="40" y="95" width="150" height="200" rx="6" fill="#E2E8F0" stroke="#6EE7B7" stroke-width="2"/>
+  <circle cx="115" cy="170" r="45" fill="#94A3B8"/>
+  <path d="M55,275 Q115,200 175,275 Z" fill="#64748B"/>
+  <text x="115" y="315" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#475569" text-anchor="middle">R. DESHMUKH</text>
+
+  <!-- Visa Details Grid -->
+  <text x="215" y="120" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#065F46">VALID FOR / VALABLE POUR:</text>
+  <text x="215" y="142" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0F172A">ETATS SCHENGEN</text>
+
+  <text x="480" y="120" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#065F46">VISA NUMBER:</text>
+  <text x="480" y="142" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="bold" fill="#DC2626">VFRA94810284</text>
+
+  <text x="215" y="180" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#065F46">FROM / DU:</text>
+  <text x="215" y="202" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0F172A">15-10-2025</text>
+
+  <text x="350" y="180" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#065F46">UNTIL / AU:</text>
+  <text x="350" y="202" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0F172A">14-11-2025</text>
+
+  <text x="480" y="180" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#065F46">ENTRIES / ENTRÉES:</text>
+  <text x="480" y="202" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0F172A">MULT (Multiple)</text>
+
+  <text x="630" y="180" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#065F46">DURATION OF STAY:</text>
+  <text x="630" y="202" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="bold" fill="#047857">30 DAYS</text>
+
+  <text x="215" y="245" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#065F46">NAME / NOM, PRÉNOM:</text>
+  <text x="215" y="270" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="bold" fill="#0F172A">DESHMUKH, ROHAN VIKRAM</text>
+
+  <text x="215" y="305" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#065F46">PASSPORT NUMBER:</text>
+  <text x="215" y="327" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E3A8A">Z6182940</text>
+
+  <text x="480" y="305" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#065F46">ISSUED IN / DÉLIVRÉ À:</text>
+  <text x="480" y="327" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">MUMBAI (CONSULATE GENERAL)</text>
+
+  <!-- MRZ Strip for Visa -->
+  <rect x="25" y="420" width="800" height="95" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="50" y="460" font-family="Courier New, monospace" font-size="20" font-weight="bold" fill="#0F172A" letter-spacing="3">V&lt;FRADESHMUKH&lt;&lt;ROHAN&lt;VIKRAM&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</text>
+  <text x="50" y="495" font-family="Courier New, monospace" font-size="20" font-weight="bold" fill="#0F172A" letter-spacing="3">VFRA94810284IND9005228M2511140M&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;02</text>
+</svg>
