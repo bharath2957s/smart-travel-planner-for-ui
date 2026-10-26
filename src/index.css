@@ -196,3 +196,268 @@
 .font-script {
   font-family: 'Caveat', cursive, sans-serif;
 }
+
+/* ================= GOLDEN HOUR THEME (SCOPED TO NON-HOME PAGES ONLY) ================= */
+.app-theme {
+  --bg: #F6EFE6;            /* page background */
+  --surface: #FFFFFF;       /* cards */
+  --surface-soft: #FBF6EE;  /* soft panels, inputs */
+  --ink: #14213D;           /* headings, primary button bg */
+  --text: #14213D;
+  --muted: #6B6F80;
+  --gold: #D4A24C;          /* ratings, badges, accents */
+  --terracotta: #E76F51;    /* main CTA, highlights */
+  --teal: #2A9D8F;          /* chips, success, map pins */
+  --border: rgba(20, 33, 61, 0.12);
+  --shadow-sm: 0 2px 8px rgba(20, 33, 61, 0.06);
+  --shadow-md: 0 10px 30px rgba(20, 33, 61, 0.10);
+  --radius: 16px;
+
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  scroll-behavior: smooth;
+}
+
+/* Headings within Golden Hour */
+.app-theme h1,
+.app-theme h2,
+.app-theme h3,
+.app-theme h4,
+.app-theme h5,
+.app-theme h6 {
+  color: var(--ink);
+}
+
+/* Cards */
+.app-theme .gh-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-theme .gh-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.app-theme .gh-card-static {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Card image container with zoom on hover */
+.app-theme .gh-img-container {
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #EBDCC6;
+}
+
+.app-theme .gh-card:hover .gh-img-container img,
+.app-theme .gh-img-container:hover img {
+  transform: scale(1.05);
+}
+
+.app-theme .gh-img-container img {
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Soft Panels */
+.app-theme .gh-panel {
+  background-color: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* Inputs */
+.app-theme .gh-input {
+  background-color: var(--surface-soft);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 12px;
+  transition: border-color 200ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-theme .gh-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(212, 162, 76, 0.2);
+}
+
+/* Primary Button (Terracotta main CTA) */
+.app-theme .gh-btn-primary {
+  background-color: var(--terracotta);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(231, 111, 81, 0.25);
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), filter 200ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-theme .gh-btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 4px 12px rgba(231, 111, 81, 0.35);
+}
+
+.app-theme .gh-btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Dark Button (Ink) */
+.app-theme .gh-btn-ink {
+  background-color: var(--ink);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), filter 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-theme .gh-btn-ink:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+.app-theme .gh-btn-ink:active {
+  transform: scale(0.98);
+}
+
+/* Secondary Button (Surface with border) */
+.app-theme .gh-btn-secondary {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 500;
+  border-radius: 12px;
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), background-color 200ms;
+}
+
+.app-theme .gh-btn-secondary:hover {
+  transform: translateY(-1px);
+  background-color: var(--surface-soft);
+}
+
+.app-theme .gh-btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Badges and Chips */
+.app-theme .gh-badge-gold {
+  background-color: rgba(212, 162, 76, 0.15);
+  color: #B27B22;
+  border: 1px solid rgba(212, 162, 76, 0.3);
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.app-theme .gh-badge-teal {
+  background-color: rgba(42, 157, 143, 0.12);
+  color: #1E7469;
+  border: 1px solid rgba(42, 157, 143, 0.28);
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.app-theme .gh-badge-ink {
+  background-color: rgba(20, 33, 61, 0.08);
+  color: var(--ink);
+  border: 1px solid rgba(20, 33, 61, 0.15);
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+/* Skeleton Shimmer */
+@keyframes gh-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.app-theme .gh-skeleton {
+  background: linear-gradient(90deg, #EBDCC6 25%, #F6EFE6 50%, #EBDCC6 75%);
+  background-size: 200% 100%;
+  animation: gh-shimmer 1.6s infinite ease-in-out;
+  border-radius: 8px;
+}
+
+/* Typing indicator dots */
+@keyframes gh-bounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+}
+
+.app-theme .gh-dot-1 {
+  animation: gh-bounce 1.2s infinite ease-in-out 0s;
+}
+.app-theme .gh-dot-2 {
+  animation: gh-bounce 1.2s infinite ease-in-out 0.2s;
+}
+.app-theme .gh-dot-3 {
+  animation: gh-bounce 1.2s infinite ease-in-out 0.4s;
+}
+
+/* Page entrance animation (fade + 12px upward slide) */
+@keyframes ghPageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gh-page-enter {
+  animation: ghPageEnter 350ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Scoped harmony overrides for legacy utilities inside non-home pages */
+.app-theme .glass-panel,
+.app-theme .glass-control {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.app-theme .neu-raised {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+  color: var(--text) !important;
+}
+
+.app-theme .neu-raised:hover {
+  background-color: var(--surface-soft) !important;
+  border-color: var(--gold) !important;
+}
+
+.app-theme .neu-selected-cyan {
+  background-color: var(--ink) !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* Accessibility: Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .app-theme *,
+  .app-theme *::before,
+  .app-theme *::after,
+  .gh-page-enter {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+  }
+}
+

@@ -371,39 +371,39 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
       )}
 
       {/* Odyssey Header Section */}
-      <div className="relative w-full rounded-2xl bg-white p-6 md:p-8 shadow-sm mb-6 border border-[#E2E8F0] overflow-hidden">
-        <div className="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-gradient-to-br from-[#0891B2]/10 via-[#7C3AED]/5 to-transparent blur-3xl pointer-events-none" />
+      <div className="relative w-full rounded-[16px] bg-white p-6 md:p-8 shadow-[0_2px_8px_rgba(20,33,61,0.06)] mb-6 border border-[rgba(20,33,61,0.12)] overflow-hidden">
+        <div className="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-gradient-to-br from-[#D4A24C]/15 via-[#E76F51]/10 to-transparent blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col xl:flex-row xl:items-end justify-between gap-6">
           <div className="flex flex-col max-w-3xl">
-            <div className="flex items-center gap-2 mb-2 text-[#0891B2] flex-wrap">
-              <span className="material-symbols-outlined text-lg">verified_user</span>
-              <span className="text-[11px] font-bold uppercase tracking-widest text-[#0891B2]">
-                Autonomous Concierge Curation · Verified Tier
+            <div className="flex items-center gap-2 mb-2 text-[#D4A24C] flex-wrap">
+              <span className="material-symbols-outlined text-lg text-[#D4A24C]">verified_user</span>
+              <span className="text-[11px] font-bold uppercase tracking-widest text-[#B27B22]">
+                Autonomous Concierge Curation · Golden Hour Tier
               </span>
-              <span className="text-[#CBD5E1]">•</span>
-              <span className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider">
+              <span className="text-[rgba(20,33,61,0.2)]">•</span>
+              <span className="text-[11px] font-mono text-[#6B6F80] uppercase tracking-wider">
                 Ref ID: {trip.confNumber.replace('CONF. #', '')}
               </span>
             </div>
 
-            <h1 className="font-serif-heading text-3xl md:text-4xl lg:text-5xl text-[#0F172A] font-bold tracking-tight leading-none mb-3">
+            <h1 className="font-serif-heading text-3xl md:text-4xl lg:text-5xl text-[#14213D] font-bold tracking-tight leading-none mb-3">
               {trip.title}
             </h1>
 
-            <div className="flex flex-wrap items-center gap-3 text-[#64748B] pt-1">
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F8FAFC] text-[#0F172A] border border-[#E2E8F0]">
-                <span className="material-symbols-outlined text-[#0891B2] text-base">calendar_month</span>
+            <div className="flex flex-wrap items-center gap-3 text-[#6B6F80] pt-1">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FBF6EE] text-[#14213D] border border-[rgba(20,33,61,0.12)]">
+                <span className="material-symbols-outlined text-[#D4A24C] text-base">calendar_month</span>
                 <span className="text-xs font-semibold">{trip.durationDays} Days / {trip.durationDays - 1} Nights</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F8FAFC] text-[#0F172A] border border-[#E2E8F0]">
-                <span className="material-symbols-outlined text-[#7C3AED] text-base">speed</span>
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FBF6EE] text-[#14213D] border border-[rgba(20,33,61,0.12)]">
+                <span className="material-symbols-outlined text-[#E76F51] text-base">speed</span>
                 <span className="text-xs">
-                  Pacing: <strong className="text-[#0F172A] font-bold">Relaxed {trip.pacing.relaxedPercent}%</strong> · Active {trip.pacing.activePercent}%
+                  Pacing: <strong className="text-[#14213D] font-bold">Relaxed {trip.pacing.relaxedPercent}%</strong> · Active {trip.pacing.activePercent}%
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F8FAFC] text-[#0F172A] border border-[#E2E8F0]">
-                <span className="material-symbols-outlined text-[#0891B2] text-base">pin_drop</span>
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FBF6EE] text-[#14213D] border border-[rgba(20,33,61,0.12)]">
+                <span className="material-symbols-outlined text-[#2A9D8F] text-base">pin_drop</span>
                 <span className="text-xs font-semibold">{trip.destination}</span>
               </div>
             </div>
@@ -414,32 +414,32 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
             <button
               onClick={handleRegenerate}
               disabled={isRegenerating}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#0F172A] border border-[#E2E8F0] text-xs font-semibold transition-all shadow-2xs"
+              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white hover:bg-[#FBF6EE] text-[#14213D] border border-[rgba(20,33,61,0.12)] hover:border-[#D4A24C] text-xs font-semibold transition-all duration-200 hover:-translate-y-px active:scale-98 shadow-2xs cursor-pointer"
             >
-              <span className={`material-symbols-outlined text-[#7C3AED] text-base ${isRegenerating ? 'animate-spin' : ''}`}>
+              <span className={`material-symbols-outlined text-[#D4A24C] text-base ${isRegenerating ? 'animate-spin' : ''}`}>
                 auto_fix_high
               </span>
               <span>{isRegenerating ? 'Recalculating...' : 'Regenerate Day with AI'}</span>
             </button>
             <button
               onClick={() => showToast('Dossier link copied to clipboard.')}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#0F172A] border border-[#E2E8F0] text-xs font-semibold transition-all shadow-2xs"
+              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white hover:bg-[#FBF6EE] text-[#14213D] border border-[rgba(20,33,61,0.12)] hover:border-[#D4A24C] text-xs font-semibold transition-all duration-200 hover:-translate-y-px active:scale-98 shadow-2xs cursor-pointer"
             >
-              <span className="material-symbols-outlined text-base text-[#0891B2]">share</span>
+              <span className="material-symbols-outlined text-base text-[#2A9D8F]">share</span>
               <span>Share Dossier</span>
             </button>
             <button
               onClick={() => showToast('Pass generated and synced with Apple Wallet.')}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#0891B2] hover:bg-[#0e7490] text-white text-xs font-semibold transition-all shadow-sm"
+              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#14213D] hover:bg-[#1E2E52] text-white text-xs font-semibold transition-all duration-200 hover:-translate-y-px active:scale-98 shadow-sm cursor-pointer"
             >
-              <span className="material-symbols-outlined text-base">account_balance_wallet</span>
+              <span className="material-symbols-outlined text-base text-[#D4A24C]">account_balance_wallet</span>
               <span>Export to Apple Wallet</span>
             </button>
           </div>
         </div>
 
         {/* Day Selector Strip */}
-        <div className="relative z-10 mt-8 pt-4 border-t border-[#E2E8F0] flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <div className="relative z-10 mt-8 pt-4 border-t border-[rgba(20,33,61,0.12)] flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
           {Array.from({ length: trip.durationDays }, (_, i) => i + 1).map((dNum) => {
             const isSelected = selectedDay === dNum;
             const matchingDay = trip.itinerary.find((d) => d.dayNumber === dNum);
@@ -449,13 +449,13 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
               <button
                 key={dNum}
                 onClick={() => setSelectedDay(dNum)}
-                className={`px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex flex-col items-start gap-0.5 shrink-0 ${
+                className={`px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 flex flex-col items-start gap-0.5 shrink-0 cursor-pointer ${
                   isSelected
-                    ? 'bg-[#0891B2] text-white shadow-sm scale-102 font-bold'
-                    : 'bg-[#F8FAFC] text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9] border border-[#E2E8F0]'
+                    ? 'bg-[#E76F51] text-white shadow-sm font-bold scale-102'
+                    : 'bg-[#FBF6EE] text-[#6B6F80] hover:text-[#14213D] hover:bg-white border border-[rgba(20,33,61,0.12)]'
                 }`}
               >
-                <span className={`text-[10px] uppercase font-mono ${isSelected ? 'text-cyan-100' : 'text-[#94A3B8]'}`}>
+                <span className={`text-[10px] uppercase font-mono ${isSelected ? 'text-white/80' : 'text-[#8E95A5]'}`}>
                   {dateLabel}
                 </span>
                 <span>Day {dNum < 10 ? `0${dNum}` : dNum}</span>
@@ -489,32 +489,26 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
             <React.Fragment key={activity.id}>
               <div
                 onClick={() => setSelectedActivityId(activity.id)}
-                className={`relative bg-white rounded-2xl p-5 md:p-6 border transition-all cursor-pointer group ${
+                className={`relative bg-white rounded-[16px] p-5 md:p-6 border border-[rgba(20,33,61,0.12)] border-l-4 border-l-[#D4A24C] transition-all duration-260 cursor-pointer group hover:-translate-y-1 ${
                   selectedActivityId === activity.id
-                    ? 'border-[#0891B2] ring-2 ring-[#0891B2]/30 shadow-md bg-[#F0FDFA]/20'
-                    : 'border-[#E2E8F0] hover:border-[#0891B2] shadow-sm'
+                    ? 'ring-2 ring-[#D4A24C]/30 shadow-[0_10px_30px_rgba(20,33,61,0.10)] bg-[#FBF6EE]/40'
+                    : 'shadow-[0_2px_8px_rgba(20,33,61,0.06)] hover:shadow-[0_10px_30px_rgba(20,33,61,0.10)]'
                 }`}
               >
-                {/* Visual Status Rail */}
-                <div
-                  className={`absolute left-0 top-6 bottom-6 w-1.5 rounded-r ${
-                    idx === 0 ? 'bg-[#0891B2]' : idx === 1 ? 'bg-[#7C3AED]' : 'bg-[#059669]'
-                  }`}
-                />
-
-                <div className="pl-3 flex flex-col gap-4">
+                <div className="flex flex-col gap-4">
                   {/* Card Header & Time Slot */}
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="material-symbols-outlined text-[#94A3B8] text-base">
+                      <span className="material-symbols-outlined text-[#D4A24C] text-base">
                         pin_drop
                       </span>
-                      <div className="px-2.5 py-1 rounded-md bg-[#EFF6FF] text-[#0891B2] font-mono text-[11px] font-bold uppercase tracking-wider">
+                      {/* Time label in gold */}
+                      <div className="px-2.5 py-1 rounded-md bg-[#FBF6EE] text-[#B27B22] border border-[#D4A24C]/35 font-mono text-[11px] font-bold uppercase tracking-wider">
                         {activity.timeSlot}
                       </div>
-                      <span className="text-[#94A3B8] text-xs">Est. {activity.duration}</span>
+                      <span className="text-[#6B6F80] text-xs">Est. {activity.duration}</span>
                       {selectedActivityId === activity.id && (
-                        <span className="px-2 py-0.5 rounded-full bg-[#0891B2] text-white text-[9px] font-mono font-bold uppercase tracking-wider">
+                        <span className="px-2 py-0.5 rounded-full bg-[#E76F51] text-white text-[9px] font-mono font-bold uppercase tracking-wider">
                           Focused on Map
                         </span>
                       )}
@@ -527,7 +521,7 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                           e.stopPropagation();
                           handleOpenEditModal(activity, selectedDay);
                         }}
-                        className="p-1.5 rounded-lg text-[#64748B] hover:text-[#0891B2] hover:bg-[#EFF6FF] transition-colors"
+                        className="p-1.5 rounded-lg text-[#6B6F80] hover:text-[#14213D] hover:bg-[#FBF6EE] transition-colors cursor-pointer"
                         title="Edit Activity & Price"
                       >
                         <span className="material-symbols-outlined text-base">edit</span>
@@ -540,7 +534,7 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                             handleDeleteActivity(activity.id, selectedDay);
                           }
                         }}
-                        className="p-1.5 rounded-lg text-[#64748B] hover:text-rose-600 hover:bg-rose-50 transition-colors"
+                        className="p-1.5 rounded-lg text-[#6B6F80] hover:text-[#D64545] hover:bg-rose-50 transition-colors cursor-pointer"
                         title="Delete Activity"
                       >
                         <span className="material-symbols-outlined text-base">delete</span>
@@ -548,19 +542,21 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                     </div>
                   </div>
 
-                  {/* Activity Details & Real Photographic Imagery */}
+                  {/* Activity Details & Photographic Imagery with Rounded Corners & Subtle Gradient */}
                   <div className="flex flex-col md:flex-row gap-4">
-                    <div className="w-full md:w-56 h-36 rounded-xl overflow-hidden shrink-0 relative bg-slate-100">
+                    <div className="w-full md:w-56 h-36 rounded-xl overflow-hidden shrink-0 relative bg-[#EBDCC6]">
                       <RealPlacePhoto
                         placeName={activity.placeName || activity.title}
                         destination={trip.destination}
                         characteristics={activity.description}
                         aspectRatio="16/9"
-                        className="w-full h-full"
+                        className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105"
                         alt={`${activity.title} in ${trip.destination}`}
                       />
+                      {/* Subtle bottom gradient so text stays readable */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#14213D]/70 via-transparent to-transparent pointer-events-none" />
                       {activity.badge && (
-                        <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-[#0F172A]/80 text-white text-[10px] font-mono uppercase backdrop-blur-sm z-10">
+                        <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded-full bg-[#14213D]/80 text-[#D4A24C] text-[10px] font-mono font-semibold uppercase backdrop-blur-sm z-10 border border-[#D4A24C]/30">
                           {activity.badge}
                         </div>
                       )}
@@ -569,7 +565,7 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                     <div className="flex flex-col justify-between flex-1 min-w-0">
                       <div>
                         <div className="flex items-center justify-between gap-2 mb-1 flex-wrap">
-                          <div className="flex items-center gap-1.5 text-[#0891B2]">
+                          <div className="flex items-center gap-1.5 text-[#2A9D8F]">
                             <span className="material-symbols-outlined text-sm">
                               {activity.category === 'culture'
                                 ? 'fort'
@@ -587,27 +583,29 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                               {activity.categoryLabel}
                             </span>
                             {activity.neighborhood && (
-                              <span className="text-xs text-[#64748B]">
+                              <span className="text-xs text-[#6B6F80]">
                                 · {activity.neighborhood}
                               </span>
                             )}
                           </div>
 
                           <div className="flex items-center gap-2">
-                            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#1E7469] bg-[#2A9D8F]/15 px-2 py-0.5 rounded-full border border-[#2A9D8F]/30">
                               <span className="material-symbols-outlined text-xs">verified</span>
                               <span>{activity.isVerified ? 'Verified Landmark' : 'Curated Place'}</span>
                             </span>
-                            <span className="font-mono text-xs font-bold text-[#0F172A] bg-[#F8FAFC] px-2 py-0.5 rounded-md border border-[#E2E8F0]">
+                            <span className="font-mono text-xs font-bold text-[#14213D] bg-[#FBF6EE] px-2 py-0.5 rounded-md border border-[rgba(20,33,61,0.12)]">
                               Est. {formatCurrency(activity.estimatedCost, currency)}
                             </span>
                           </div>
                         </div>
 
-                        <h2 className="font-serif-heading text-lg text-[#0F172A] font-bold mb-1">
+                        {/* Place Name in ink */}
+                        <h2 className="font-serif-heading text-lg text-[#14213D] font-bold mb-1">
                           {activity.placeName || activity.title}
                         </h2>
-                        <p className="text-xs text-[#64748B] leading-relaxed">
+                        {/* Short description in muted */}
+                        <p className="text-xs text-[#6B6F80] leading-relaxed">
                           {activity.description}
                         </p>
                       </div>
@@ -619,7 +617,7 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                             {activity.specs.map((sp, sIdx) => (
                               <span
                                 key={sIdx}
-                                className="px-2 py-0.5 rounded bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] text-[11px] font-medium"
+                                className="px-2 py-0.5 rounded-md bg-[#FBF6EE] border border-[rgba(20,33,61,0.08)] text-[#14213D] text-[11px] font-medium"
                               >
                                 {sp}
                               </span>
@@ -627,7 +625,7 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                           </div>
                         )}
                         {activity.dataSource && (
-                          <span className="text-[10px] text-[#94A3B8] font-mono">
+                          <span className="text-[10px] text-[#8E95A5] font-mono">
                             Source: {activity.dataSource}
                           </span>
                         )}
@@ -637,17 +635,17 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
 
                   {/* AI Alternative Swaps */}
                   {activity.alternatives && activity.alternatives.length > 0 && (
-                    <div className="pt-2 border-t border-[#E2E8F0] flex flex-wrap items-center gap-2">
-                      <span className="text-[10px] uppercase tracking-wider text-[#94A3B8] font-bold">
+                    <div className="pt-2 border-t border-[rgba(20,33,61,0.08)] flex flex-wrap items-center gap-2">
+                      <span className="text-[10px] uppercase tracking-wider text-[#6B6F80] font-bold">
                         AI Alternatives:
                       </span>
                       {activity.alternatives.map((alt) => (
                         <button
                           key={alt.id}
                           onClick={() => handleSwapAlternative(activity.id, alt.label, alt.costDelta)}
-                          className="px-2.5 py-1 rounded-full bg-[#F5F3FF] hover:bg-[#EDE9FE] border border-[#DDD6FE] text-[#7C3AED] text-xs font-semibold flex items-center gap-1 transition-colors"
+                          className="px-2.5 py-1 rounded-full bg-[#FBF6EE] hover:bg-[#EBDCC6] border border-[#D4A24C]/40 text-[#14213D] text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer"
                         >
-                          <span className="material-symbols-outlined text-xs">swap_horiz</span>
+                          <span className="material-symbols-outlined text-xs text-[#D4A24C]">swap_horiz</span>
                           <span>{alt.label}</span>
                         </button>
                       ))}
@@ -876,8 +874,8 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
             <form onSubmit={handleSaveActivity} className="space-y-4">
               {/* Activity Title (Required) */}
               <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-[#64748B] block mb-1">
-                  Activity Title <span className="text-rose-500">*</span>
+                <label className="text-xs font-bold uppercase tracking-wider text-[#6B6F80] block mb-1">
+                  Activity Title <span className="text-[#E76F51]">*</span>
                 </label>
                 <input
                   type="text"
@@ -885,20 +883,20 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                   placeholder="e.g. Private Catamaran Coastal Cruise"
                   value={formTitle}
                   onChange={(e) => setFormTitle(e.target.value)}
-                  className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-[#CBD5E1] focus:outline-none focus:border-[#0891B2] font-semibold text-[#0F172A]"
+                  className="w-full px-3.5 py-2.5 text-xs rounded-xl bg-[#FBF6EE] border border-[rgba(20,33,61,0.12)] focus:outline-none focus:border-[#D4A24C] focus:ring-4 focus:ring-[#D4A24C]/20 transition-all font-semibold text-[#14213D]"
                 />
               </div>
 
               {/* Day Selection & Time Slot */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-[#64748B] block mb-1">
-                    Itinerary Day <span className="text-rose-500">*</span>
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#6B6F80] block mb-1">
+                    Itinerary Day <span className="text-[#E76F51]">*</span>
                   </label>
                   <select
                     value={formDay}
                     onChange={(e) => setFormDay(Number(e.target.value))}
-                    className="w-full px-3 py-2.5 text-xs rounded-xl border border-[#CBD5E1] focus:outline-none focus:border-[#0891B2] bg-white font-medium text-[#0F172A]"
+                    className="w-full px-3 py-2.5 text-xs rounded-xl bg-[#FBF6EE] border border-[rgba(20,33,61,0.12)] focus:outline-none focus:border-[#D4A24C] focus:ring-4 focus:ring-[#D4A24C]/20 transition-all font-medium text-[#14213D]"
                   >
                     {trip.itinerary.map((d) => (
                       <option key={d.dayNumber} value={d.dayNumber}>
@@ -909,14 +907,14 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-[#64748B] block mb-1">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#6B6F80] block mb-1">
                     Time Slot
                   </label>
                   <input
                     type="text"
                     value={formTime}
                     onChange={(e) => setFormTime(e.target.value)}
-                    className="w-full px-3 py-2.5 text-xs rounded-xl border border-[#CBD5E1] focus:outline-none focus:border-[#0891B2] text-[#0F172A]"
+                    className="w-full px-3 py-2.5 text-xs rounded-xl bg-[#FBF6EE] border border-[rgba(20,33,61,0.12)] focus:outline-none focus:border-[#D4A24C] focus:ring-4 focus:ring-[#D4A24C]/20 transition-all text-[#14213D]"
                   />
                 </div>
               </div>
@@ -933,10 +931,10 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                     key={slot}
                     type="button"
                     onClick={() => setFormTime(slot)}
-                    className={`text-[10px] px-2 py-0.5 rounded-full border transition ${
+                    className={`text-[10px] px-2.5 py-0.5 rounded-full border transition cursor-pointer ${
                       formTime === slot
-                        ? 'bg-[#EFF6FF] text-[#0891B2] border-[#BFDBFE] font-bold'
-                        : 'bg-[#F8FAFC] text-[#64748B] border-[#E2E8F0] hover:border-[#CBD5E1]'
+                        ? 'bg-[#FBF6EE] text-[#14213D] border-[#D4A24C] font-bold'
+                        : 'bg-white text-[#6B6F80] border-[rgba(20,33,61,0.12)] hover:border-[#D4A24C]/40'
                     }`}
                   >
                     {slot.split(' · ')[0]}
@@ -946,13 +944,13 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
 
               {/* Category */}
               <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-[#64748B] block mb-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-[#6B6F80] block mb-1">
                   Category
                 </label>
                 <select
                   value={formCategory}
                   onChange={(e) => setFormCategory(e.target.value)}
-                  className="w-full px-3 py-2.5 text-xs rounded-xl border border-[#CBD5E1] focus:outline-none focus:border-[#0891B2] bg-white text-[#0F172A]"
+                  className="w-full px-3 py-2.5 text-xs rounded-xl bg-[#FBF6EE] border border-[rgba(20,33,61,0.12)] focus:outline-none focus:border-[#D4A24C] focus:ring-4 focus:ring-[#D4A24C]/20 transition-all text-[#14213D]"
                 >
                   <option value="experiences">Experiences & Sightseeing</option>
                   <option value="culture">Cultural Heritage & Monuments</option>
@@ -972,25 +970,25 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                     placeholder="Enter custom category name"
                     value={customCategoryName}
                     onChange={(e) => setCustomCategoryName(e.target.value)}
-                    className="w-full mt-2 px-3 py-2 text-xs rounded-xl border border-[#CBD5E1] focus:outline-none focus:border-[#0891B2] text-[#0F172A]"
+                    className="w-full mt-2 px-3 py-2 text-xs rounded-xl bg-[#FBF6EE] border border-[rgba(20,33,61,0.12)] focus:outline-none focus:border-[#D4A24C] text-[#14213D]"
                   />
                 )}
               </div>
 
               {/* Custom Price (INR ₹) — Required Manual Numeric Input */}
-              <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#CBD5E1]/80 space-y-2">
+              <div className="p-4 rounded-2xl bg-[#FBF6EE] border border-[rgba(20,33,61,0.12)] space-y-2">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold uppercase tracking-wider text-[#0F172A] flex items-center gap-1">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#14213D] flex items-center gap-1">
                     <span>Custom Price (INR ₹)</span>
-                    <span className="text-rose-500">*</span>
+                    <span className="text-[#E76F51]">*</span>
                   </label>
-                  <span className="text-[10px] text-[#0891B2] font-semibold">
+                  <span className="text-[10px] text-[#D4A24C] font-semibold">
                     Indian Rupee Format
                   </span>
                 </div>
 
                 <div className="relative">
-                  <span className="absolute left-3.5 top-2.5 text-sm font-bold text-[#64748B]">
+                  <span className="absolute left-3.5 top-2.5 text-sm font-bold text-[#D4A24C]">
                     ₹
                   </span>
                   <input
@@ -1004,24 +1002,24 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                       setFormPrice(e.target.value);
                       if (priceError) setPriceError(null);
                     }}
-                    className={`w-full pl-8 pr-3 py-2.5 text-xs font-mono font-bold rounded-xl border focus:outline-none text-[#0F172A] ${
+                    className={`w-full pl-8 pr-3 py-2.5 text-xs font-mono font-bold rounded-xl border focus:outline-none text-[#14213D] transition-all ${
                       priceError
-                        ? 'border-rose-400 bg-rose-50/40 focus:border-rose-500'
-                        : 'border-[#CBD5E1] focus:border-[#0891B2] bg-white'
+                        ? 'border-rose-400 bg-rose-50/40 focus:border-[#D64545]'
+                        : 'border-[rgba(20,33,61,0.12)] focus:border-[#D4A24C] focus:ring-4 focus:ring-[#D4A24C]/20 bg-white'
                     }`}
                   />
                 </div>
 
                 {priceError ? (
-                  <p className="text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                  <p className="text-[11px] text-[#D64545] font-medium flex items-center gap-1">
                     <span className="material-symbols-outlined text-sm">error</span>
                     <span>{priceError}</span>
                   </p>
                 ) : (
-                  <div className="flex items-center justify-between text-[11px] text-[#64748B]">
+                  <div className="flex items-center justify-between text-[11px] text-[#6B6F80]">
                     <span>Enter ₹0 for free sightseeing or uncharged walks.</span>
                     {formPrice.trim() !== '' && !isNaN(Number(formPrice)) && (
-                      <span className="font-mono font-semibold text-[#0891B2]">
+                      <span className="font-mono font-semibold text-[#D4A24C]">
                         Preview: {formatCurrency(Number(formPrice), 'INR')}
                         {currency !== 'INR' && ` (${formatCurrency(Number(formPrice), currency)})`}
                       </span>
@@ -1032,7 +1030,7 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
 
               {/* Notes / Description */}
               <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-[#64748B] block mb-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-[#6B6F80] block mb-1">
                   Notes or Description (Optional)
                 </label>
                 <textarea
@@ -1040,23 +1038,23 @@ export const ItineraryPage: React.FC<ItineraryPageProps> = ({
                   placeholder="Private booking notes, meeting point, reservation confirmation, or dress code..."
                   value={formNotes}
                   onChange={(e) => setFormNotes(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-xl border border-[#CBD5E1] focus:outline-none focus:border-[#0891B2] text-[#0F172A]"
+                  className="w-full px-3 py-2 text-xs rounded-xl bg-[#FBF6EE] border border-[rgba(20,33,61,0.12)] focus:outline-none focus:border-[#D4A24C] focus:ring-4 focus:ring-[#D4A24C]/20 transition-all text-[#14213D]"
                 />
               </div>
 
               {/* Form Action Buttons */}
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#E2E8F0]">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[rgba(20,33,61,0.12)]">
                 <button
                   type="button"
                   onClick={() => setShowActivityModal(false)}
-                  className="px-4 py-2.5 text-xs font-semibold text-[#64748B] hover:text-[#0F172A] transition"
+                  className="px-4 py-2.5 text-xs font-semibold text-[#6B6F80] hover:text-[#14213D] transition cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSaving}
-                  className="px-6 py-2.5 rounded-xl bg-[#0891B2] hover:bg-[#0e7490] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition disabled:opacity-50 flex items-center gap-1.5"
+                  className="px-6 py-2.5 rounded-xl bg-[#E76F51] hover:bg-[#de6344] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-200 hover:-translate-y-px active:scale-98 disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-sm">
                     {isEditing ? 'check' : 'bookmark_add'}

@@ -206,16 +206,16 @@ export const BudgetPage: React.FC<BudgetPageProps> = ({
         <div className="flex flex-wrap items-center gap-2.5 shrink-0">
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#0891B2] hover:bg-[#0e7490] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-xs"
+            className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl gh-btn-primary text-white text-xs font-bold uppercase tracking-wider transition-all shadow-xs cursor-pointer"
           >
             <span className="material-symbols-outlined text-sm">add</span>
             <span>Record Expense</span>
           </button>
           <button
             onClick={exportAuditJSON}
-            className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white text-[#0F172A] border border-[#CBD5E1] text-xs font-semibold hover:bg-[#F8FAFC] shadow-2xs transition-all"
+            className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl gh-btn-secondary text-[#14213D] text-xs font-semibold shadow-xs transition-all cursor-pointer"
           >
-            <span className="material-symbols-outlined text-sm">download</span>
+            <span className="material-symbols-outlined text-sm text-[#D4A24C]">download</span>
             <span>Export Audit JSON</span>
           </button>
         </div>
@@ -224,77 +224,76 @@ export const BudgetPage: React.FC<BudgetPageProps> = ({
       {/* 4 Financial KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Total Spending Limit */}
-        <div className="bg-white rounded-3xl p-5 border border-[#E2E8F0] shadow-xs space-y-1">
-          <div className="flex items-center justify-between text-xs text-[#64748B]">
+        <div className="bg-white rounded-2xl p-5 border border-[rgba(20,33,61,0.12)] shadow-[0_2px_8px_rgba(20,33,61,0.06)] space-y-1">
+          <div className="flex items-center justify-between text-xs text-[#6B6F80]">
             <span className="font-bold uppercase tracking-wider text-[10px]">
               Total Spending Limit
             </span>
-            <span className="material-symbols-outlined text-[#0891B2] text-base">account_balance</span>
+            <span className="material-symbols-outlined text-[#D4A24C] text-base">account_balance</span>
           </div>
-          <div className="font-serif-heading text-2xl font-bold font-mono text-[#0F172A] pt-1">
+          <div className="font-serif-heading text-2xl font-bold font-mono text-[#14213D] pt-1">
             {formatCurrency(totalCapConverted, currency)}
           </div>
-          <div className="text-[11px] text-[#64748B]">
+          <div className="text-[11px] text-[#6B6F80]">
             Defined maximum allocation
           </div>
         </div>
 
         {/* Committed Outlay */}
-        <div className="bg-white rounded-3xl p-5 border border-[#E2E8F0] shadow-xs space-y-1">
-          <div className="flex items-center justify-between text-xs text-[#64748B]">
+        <div className="bg-white rounded-2xl p-5 border border-[rgba(20,33,61,0.12)] shadow-[0_2px_8px_rgba(20,33,61,0.06)] space-y-1">
+          <div className="flex items-center justify-between text-xs text-[#6B6F80]">
             <span className="font-bold uppercase tracking-wider text-[10px]">
               Committed Outlay
             </span>
-            <span className="material-symbols-outlined text-[#7C3AED] text-base">receipt_long</span>
+            <span className="material-symbols-outlined text-[#E76F51] text-base">receipt_long</span>
           </div>
-          <div className="font-serif-heading text-2xl font-bold font-mono text-[#0F172A] pt-1">
+          <div className="font-serif-heading text-2xl font-bold font-mono text-[#14213D] pt-1">
             {formatCurrency(committedConverted, currency)}
           </div>
-          <div className="text-[11px] text-[#64748B] flex items-center justify-between flex-wrap gap-1">
-            <span>Settled: <strong className="font-mono text-[#0F172A]">{formatCurrency(convertCurrency(settledTotal, 'INR', currency), currency)}</strong></span>
-            <span>Planned: <strong className="font-mono text-[#0891B2]">{formatCurrency(convertCurrency(plannedTotal, 'INR', currency), currency)}</strong></span>
+          <div className="text-[11px] text-[#6B6F80] flex items-center justify-between flex-wrap gap-1">
+            <span>Settled: <strong className="font-mono text-[#14213D]">{formatCurrency(convertCurrency(settledTotal, 'INR', currency), currency)}</strong></span>
+            <span>Planned: <strong className="font-mono text-[#2A9D8F]">{formatCurrency(convertCurrency(plannedTotal, 'INR', currency), currency)}</strong></span>
           </div>
         </div>
 
-
         {/* Contingency Buffer */}
-        <div className="bg-white rounded-3xl p-5 border border-[#E2E8F0] shadow-xs space-y-1">
-          <div className="flex items-center justify-between text-xs text-[#64748B]">
+        <div className="bg-white rounded-2xl p-5 border border-[rgba(20,33,61,0.12)] shadow-[0_2px_8px_rgba(20,33,61,0.06)] space-y-1">
+          <div className="flex items-center justify-between text-xs text-[#6B6F80]">
             <span className="font-bold uppercase tracking-wider text-[10px]">
               Contingency Reserve
             </span>
-            <span className="material-symbols-outlined text-[#059669] text-base">health_and_safety</span>
+            <span className="material-symbols-outlined text-[#2A9D8F] text-base">health_and_safety</span>
           </div>
-          <div className="font-serif-heading text-2xl font-bold font-mono text-[#059669] pt-1">
+          <div className="font-serif-heading text-2xl font-bold font-mono text-[#2A9D8F] pt-1">
             {formatCurrency(contingencyConverted, currency)}
           </div>
-          <div className="text-[11px] text-[#64748B]">
+          <div className="text-[11px] text-[#6B6F80]">
             7.6% safety reserve
           </div>
         </div>
 
         {/* Remaining Surplus or Shortfall */}
         <div
-          className={`rounded-3xl p-5 border shadow-xs space-y-1 ${
+          className={`rounded-2xl p-5 border shadow-[0_2px_8px_rgba(20,33,61,0.06)] space-y-1 ${
             isOverBudget
-              ? 'bg-rose-50/70 border-rose-200'
-              : 'bg-emerald-50/70 border-emerald-200'
+              ? 'bg-[#FDF2F2] border-[rgba(214,69,69,0.3)]'
+              : 'bg-[#F0FDF4] border-[rgba(42,157,143,0.3)]'
           }`}
         >
           <div className="flex items-center justify-between text-xs">
-            <span className={`font-bold uppercase tracking-wider text-[10px] ${isOverBudget ? 'text-rose-700' : 'text-emerald-700'}`}>
+            <span className={`font-bold uppercase tracking-wider text-[10px] ${isOverBudget ? 'text-[#D64545]' : 'text-[#2A9D8F]'}`}>
               {isOverBudget ? 'Budget Shortfall' : 'Surplus Remaining'}
             </span>
-            <span className={`material-symbols-outlined text-base ${isOverBudget ? 'text-rose-600' : 'text-emerald-600'}`}>
+            <span className={`material-symbols-outlined text-base ${isOverBudget ? 'text-[#D64545]' : 'text-[#2A9D8F]'}`}>
               {isOverBudget ? 'warning' : 'savings'}
             </span>
           </div>
-          <div className={`font-serif-heading text-2xl font-bold font-mono pt-1 ${isOverBudget ? 'text-rose-700' : 'text-emerald-700'}`}>
+          <div className={`font-serif-heading text-2xl font-bold font-mono pt-1 ${isOverBudget ? 'text-[#D64545]' : 'text-[#2A9D8F]'}`}>
             {isOverBudget
               ? `-${formatCurrency(convertCurrency(shortfall, 'INR', currency), currency)}`
               : formatCurrency(remainingConverted, currency)}
           </div>
-          <div className={`text-[11px] ${isOverBudget ? 'text-rose-600' : 'text-emerald-700'}`}>
+          <div className={`text-[11px] ${isOverBudget ? 'text-[#D64545]' : 'text-[#2A9D8F]'}`}>
             {isOverBudget ? 'Exceeds target limit' : 'Unspent capital buffer'}
           </div>
         </div>
@@ -304,14 +303,14 @@ export const BudgetPage: React.FC<BudgetPageProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column: Expense Ledger (8 cols) */}
         <div className="lg:col-span-8 space-y-6">
-          <div className="bg-white rounded-3xl border border-[#E2E8F0] shadow-xs p-6 space-y-6">
+          <div className="bg-white rounded-2xl border border-[rgba(20,33,61,0.12)] shadow-[0_2px_8px_rgba(20,33,61,0.06)] p-6 space-y-6">
             {/* Ledger Header & Category Filter Tabs */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#E2E8F0]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[rgba(20,33,61,0.08)]">
               <div>
-                <h2 className="text-sm font-bold text-[#0F172A]">
+                <h2 className="text-sm font-bold text-[#14213D]">
                   Category Distribution Ledger
                 </h2>
-                <span className="text-xs text-[#64748B]">
+                <span className="text-xs text-[#6B6F80]">
                   {items.length} Tracked Item{items.length > 1 ? 's' : ''}
                 </span>
               </div>
@@ -322,10 +321,10 @@ export const BudgetPage: React.FC<BudgetPageProps> = ({
                   <button
                     key={cat}
                     onClick={() => setFilterCategory(cat)}
-                    className={`px-3 py-1 rounded-xl text-xs font-semibold capitalize transition-all ${
+                    className={`px-3 py-1 rounded-xl text-xs font-semibold capitalize transition-all cursor-pointer ${
                       filterCategory === cat
-                        ? 'bg-[#0891B2] text-white shadow-2xs'
-                        : 'bg-[#F8FAFC] text-[#64748B] hover:text-[#0F172A] border border-[#E2E8F0]'
+                        ? 'bg-[#14213D] text-white shadow-xs'
+                        : 'bg-[#FBF6EE] text-[#6B6F80] hover:text-[#14213D] border border-[rgba(20,33,61,0.12)]'
                     }`}
                   >
                     {cat}
@@ -749,7 +748,7 @@ export const BudgetPage: React.FC<BudgetPageProps> = ({
 
             <form onSubmit={handleAddExpense} className="space-y-3">
               <div className="space-y-1">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-[#64748B]">
+                <label className="text-[11px] font-bold uppercase tracking-wider text-[#6B6F80]">
                   Expense Title
                 </label>
                 <input
@@ -758,18 +757,18 @@ export const BudgetPage: React.FC<BudgetPageProps> = ({
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
                   placeholder="e.g. Scuba diving pass, Dinner at beach shack"
-                  className="w-full p-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0F172A] focus:outline-none focus:border-[#0891B2]"
+                  className="w-full p-2.5 rounded-xl gh-input text-xs text-[#14213D]"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-[#64748B]">
+                <label className="text-[11px] font-bold uppercase tracking-wider text-[#6B6F80]">
                   Category
                 </label>
                 <select
                   value={newCategory}
                   onChange={(e) => setNewCategory(e.target.value as any)}
-                  className="w-full p-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs font-semibold text-[#0F172A] focus:outline-none focus:border-[#0891B2]"
+                  className="w-full p-2.5 rounded-xl gh-input text-xs font-semibold text-[#14213D]"
                 >
                   <option value="gastronomy">Food & Gastronomy</option>
                   <option value="transit">Transit & Transport</option>
@@ -780,7 +779,7 @@ export const BudgetPage: React.FC<BudgetPageProps> = ({
               </div>
 
               <div className="space-y-1">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-[#64748B]">
+                <label className="text-[11px] font-bold uppercase tracking-wider text-[#6B6F80]">
                   Amount (INR ₹)
                 </label>
                 <input
@@ -789,12 +788,12 @@ export const BudgetPage: React.FC<BudgetPageProps> = ({
                   min={1}
                   value={newAmount}
                   onChange={(e) => setNewAmount(Number(e.target.value))}
-                  className="w-full p-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs font-mono font-bold text-[#0F172A] focus:outline-none focus:border-[#0891B2]"
+                  className="w-full p-2.5 rounded-xl gh-input text-xs font-mono font-bold text-[#14213D]"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-[#64748B]">
+                <label className="text-[11px] font-bold uppercase tracking-wider text-[#6B6F80]">
                   Optional Details
                 </label>
                 <input
@@ -802,7 +801,7 @@ export const BudgetPage: React.FC<BudgetPageProps> = ({
                   value={newSubDetail}
                   onChange={(e) => setNewSubDetail(e.target.value)}
                   placeholder="e.g. 2 Tickets, paid via UPI"
-                  className="w-full p-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0F172A] focus:outline-none focus:border-[#0891B2]"
+                  className="w-full p-2.5 rounded-xl gh-input text-xs text-[#14213D]"
                 />
               </div>
 
@@ -810,13 +809,13 @@ export const BudgetPage: React.FC<BudgetPageProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsAddModalOpen(false)}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold text-[#64748B] hover:text-[#0F172A]"
+                  className="px-4 py-2 rounded-xl text-xs font-semibold text-[#6B6F80] hover:text-[#14213D] cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-xl bg-[#0891B2] hover:bg-[#0e7490] text-white text-xs font-bold uppercase tracking-wider shadow-xs transition-all"
+                  className="px-5 py-2.5 rounded-xl gh-btn-primary text-xs font-bold uppercase tracking-wider shadow-xs transition-all cursor-pointer"
                 >
                   Save Expense
                 </button>

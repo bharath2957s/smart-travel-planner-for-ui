@@ -549,6 +549,8 @@ export interface CopilotApiResult {
   };
   executedActions?: string[];
   sentiment?: string;
+  suggestions?: string[];
+  switchTripId?: string;
 }
 
 export async function sendChatMessage(

@@ -352,33 +352,33 @@ export const GoogleOverviewRouteMap: React.FC<GoogleOverviewRouteMapProps> = ({
               {originCoords && (
                 <Polyline
                   path={transportMode === 'flight' ? arcPath : [originCoords, destCoords]}
-                  strokeColor={transportMode === 'flight' ? '#0891B2' : '#7C3AED'}
-                  strokeOpacity={0.8}
-                  strokeWeight={transportMode === 'flight' ? 3 : 4}
+                  strokeColor={transportMode === 'flight' ? '#2A9D8F' : '#D4A24C'}
+                  strokeOpacity={0.9}
+                  strokeWeight={transportMode === 'flight' ? 3.5 : 4}
                 />
               )}
 
-              {/* Origin Marker */}
+              {/* Origin Marker (Teal) */}
               {originCoords && (
                 <AdvancedMarker position={originCoords} title={`Origin: ${originName}`}>
                   <div className="flex flex-col items-center cursor-pointer group">
-                    <div className="bg-[#0891B2] text-white p-2 rounded-full shadow-lg border-2 border-white ring-2 ring-[#0891B2]/30 transition-transform group-hover:scale-110">
+                    <div className="bg-[#2A9D8F] text-white p-2 rounded-full shadow-lg border-2 border-white ring-2 ring-[#2A9D8F]/30 transition-transform group-hover:scale-110">
                       <span className="material-symbols-outlined text-base leading-none">flight_takeoff</span>
                     </div>
-                    <span className="mt-1 bg-[#0891B2] text-white text-[9px] font-bold px-2 py-0.5 rounded shadow whitespace-nowrap">
+                    <span className="mt-1 bg-[#14213D] text-[#FBF6EE] text-[9px] font-bold px-2 py-0.5 rounded-full shadow whitespace-nowrap">
                       {originName.split(',')[0]} (Origin)
                     </span>
                   </div>
                 </AdvancedMarker>
               )}
 
-              {/* Destination Marker */}
+              {/* Destination Marker (Terracotta) */}
               <AdvancedMarker position={destCoords} title={`Destination: ${destName}`}>
                 <div className="flex flex-col items-center cursor-pointer group">
-                  <div className="bg-[#7C3AED] text-white p-2 rounded-full shadow-lg border-2 border-white ring-2 ring-[#7C3AED]/30 transition-transform group-hover:scale-110">
+                  <div className="bg-[#E76F51] text-white p-2 rounded-full shadow-lg border-2 border-white ring-2 ring-[#E76F51]/30 transition-transform group-hover:scale-110">
                     <span className="material-symbols-outlined text-base leading-none">location_on</span>
                   </div>
-                  <span className="mt-1 bg-[#7C3AED] text-white text-[9px] font-bold px-2 py-0.5 rounded shadow whitespace-nowrap">
+                  <span className="mt-1 bg-[#E76F51] text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow whitespace-nowrap">
                     {destName.split(',')[0]} (Destination)
                   </span>
                 </div>
@@ -387,14 +387,14 @@ export const GoogleOverviewRouteMap: React.FC<GoogleOverviewRouteMapProps> = ({
           </APIProvider>
         ) : (
           /* Zero-key Fallback UI */
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-slate-100 flex flex-col items-center justify-center p-6 text-center">
-            <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center mb-3 shadow-2xs">
+          <div className="absolute inset-0 bg-[#FBF6EE] flex flex-col items-center justify-center p-6 text-center">
+            <div className="w-12 h-12 rounded-2xl bg-white border border-[rgba(20,33,61,0.12)] text-[#D4A24C] flex items-center justify-center mb-3 shadow-xs">
               <span className="material-symbols-outlined text-2xl">route</span>
             </div>
-            <h3 className="text-sm font-bold text-[#0F172A]">
+            <h3 className="font-serif-heading text-sm font-bold text-[#14213D]">
               {originName ? `${originName.split(',')[0]} to ` : ''}{destName.split(',')[0]} Corridor Ready
             </h3>
-            <p className="text-xs text-[#64748B] max-w-md mt-1 mb-4">
+            <p className="text-xs text-[#6B6F80] max-w-md mt-1 mb-4 leading-relaxed">
               {distanceKm > 0 ? `Direct ${distanceKm.toLocaleString()} km travel route calculated. ` : ''}
               Launch Google Maps navigation with live traffic, flight schedules, and transit connections.
             </p>
@@ -403,7 +403,7 @@ export const GoogleOverviewRouteMap: React.FC<GoogleOverviewRouteMapProps> = ({
                 href={googleMapsRouteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-sm flex items-center gap-1.5 transition-colors"
+                className="px-4 py-2.5 rounded-xl bg-[#E76F51] hover:bg-[#de6344] text-white text-xs font-bold shadow-sm flex items-center gap-1.5 transition-all duration-200 hover:-translate-y-px active:scale-98"
               >
                 <span className="material-symbols-outlined text-sm">navigation</span>
                 <span>Open Complete Corridor in Google Maps</span>
@@ -414,29 +414,29 @@ export const GoogleOverviewRouteMap: React.FC<GoogleOverviewRouteMapProps> = ({
 
         {/* Floating Telemetry HUD (Bottom-Left) */}
         {distanceKm > 0 && (
-          <div className="absolute bottom-4 left-4 z-10 bg-white/90 backdrop-blur-md p-3 rounded-2xl border border-[#E2E8F0] shadow-md max-w-xs space-y-1.5">
-            <div className="flex items-center justify-between text-[10px] text-[#64748B] border-b border-[#E2E8F0] pb-1">
-              <span className="font-bold text-[#0F172A] uppercase tracking-wider">Corridor Telemetry</span>
-              <span className="font-semibold text-cyan-600">{distanceKm} km</span>
+          <div className="absolute bottom-4 left-4 z-10 bg-white/95 backdrop-blur-md p-3.5 rounded-[16px] border border-[rgba(20,33,61,0.12)] shadow-[0_10px_30px_rgba(20,33,61,0.10)] max-w-xs space-y-1.5">
+            <div className="flex items-center justify-between text-[10px] text-[#6B6F80] border-b border-[rgba(20,33,61,0.08)] pb-1">
+              <span className="font-bold text-[#14213D] uppercase tracking-wider">Corridor Telemetry</span>
+              <span className="font-semibold text-[#2A9D8F] font-mono">{distanceKm} km</span>
             </div>
             <div className="grid grid-cols-2 gap-2 text-[10px]">
               <div>
-                <span className="text-[#64748B] block text-[9px]">Operator / Route</span>
-                <span className="font-bold text-[#0F172A] truncate block">
+                <span className="text-[#6B6F80] block text-[9px]">Operator / Route</span>
+                <span className="font-bold text-[#14213D] truncate block">
                   {selectedFlight ? selectedFlight.operator : 'Commercial Transit'}
                 </span>
               </div>
               <div>
-                <span className="text-[#64748B] block text-[9px]">Duration</span>
-                <span className="font-bold text-[#0F172A]">
+                <span className="text-[#6B6F80] block text-[9px]">Duration</span>
+                <span className="font-bold text-[#14213D]">
                   {selectedFlight ? selectedFlight.duration : `${Math.round(distanceKm / 80)}h overland`}
                 </span>
               </div>
             </div>
             {selectedFlight && (
-              <div className="pt-1 border-t border-[#E2E8F0] flex items-center justify-between text-[10px]">
-                <span className="text-[#64748B]">Total Fare:</span>
-                <span className="font-bold text-[#0891B2]">
+              <div className="pt-1 border-t border-[rgba(20,33,61,0.08)] flex items-center justify-between text-[10px]">
+                <span className="text-[#6B6F80]">Total Fare:</span>
+                <span className="font-bold text-[#D4A24C] font-mono">
                   {formatCurrency(selectedFlight.price, currency)}
                 </span>
               </div>

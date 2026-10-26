@@ -35,11 +35,11 @@ interface VisualExpenseBreakdownProps {
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
-  accommodations: '#7C3AED', // Violet
-  transit: '#0891B2',        // Cyan
-  gastronomy: '#059669',     // Emerald
-  experiences: '#F59E0B',    // Amber
-  other: '#EC4899',          // Pink
+  accommodations: '#14213D', // Ink
+  transit: '#2A9D8F',        // Teal
+  gastronomy: '#D4A24C',     // Gold
+  experiences: '#E76F51',    // Terracotta
+  other: '#6B6F80',          // Muted
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -98,27 +98,27 @@ export const VisualExpenseBreakdown: React.FC<VisualExpenseBreakdownProps> = ({
   const totalConverted = convertCurrency(totalCommittedINR, 'INR', currency);
 
   return (
-    <div className={`bg-white rounded-3xl border border-[#E2E8F0] shadow-xs p-5 space-y-4 ${className}`}>
+    <div className={`bg-white rounded-2xl border border-[rgba(20,33,61,0.12)] shadow-[0_2px_8px_rgba(20,33,61,0.06)] p-5 space-y-4 ${className}`}>
       {/* Header and Toggle */}
-      <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0]">
+      <div className="flex items-center justify-between pb-3 border-b border-[rgba(20,33,61,0.08)]">
         <div>
           <div className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-[#0891B2] text-base">pie_chart</span>
-            <h3 className="text-sm font-bold text-[#0F172A]">Visual Expense Allocation</h3>
+            <span className="material-symbols-outlined text-[#D4A24C] text-base">pie_chart</span>
+            <h3 className="text-sm font-bold text-[#14213D]">Visual Expense Allocation</h3>
           </div>
-          <p className="text-[11px] text-[#64748B]">Category distribution across trip ledger</p>
+          <p className="text-[11px] text-[#6B6F80]">Category distribution across trip ledger</p>
         </div>
 
         {/* View Switcher: Donut vs Bar */}
-        <div className="flex items-center bg-[#F1F5F9] p-0.5 rounded-xl border border-[#CBD5E1]">
+        <div className="flex items-center bg-[#FBF6EE] p-0.5 rounded-xl border border-[rgba(20,33,61,0.12)]">
           <button
             type="button"
             onClick={() => setViewType('donut')}
             title="Donut Chart"
-            className={`p-1.5 rounded-lg text-xs flex items-center transition-all ${
+            className={`p-1.5 rounded-lg text-xs flex items-center transition-all cursor-pointer ${
               viewType === 'donut'
-                ? 'bg-white text-[#0891B2] shadow-2xs font-bold'
-                : 'text-[#64748B] hover:text-[#0F172A]'
+                ? 'bg-[#14213D] text-white shadow-xs font-bold'
+                : 'text-[#6B6F80] hover:text-[#14213D]'
             }`}
           >
             <span className="material-symbols-outlined text-sm">donut_large</span>
@@ -127,10 +127,10 @@ export const VisualExpenseBreakdown: React.FC<VisualExpenseBreakdownProps> = ({
             type="button"
             onClick={() => setViewType('bar')}
             title="Bar Chart"
-            className={`p-1.5 rounded-lg text-xs flex items-center transition-all ${
+            className={`p-1.5 rounded-lg text-xs flex items-center transition-all cursor-pointer ${
               viewType === 'bar'
-                ? 'bg-white text-[#0891B2] shadow-2xs font-bold'
-                : 'text-[#64748B] hover:text-[#0F172A]'
+                ? 'bg-[#14213D] text-white shadow-xs font-bold'
+                : 'text-[#6B6F80] hover:text-[#14213D]'
             }`}
           >
             <span className="material-symbols-outlined text-sm">bar_chart</span>

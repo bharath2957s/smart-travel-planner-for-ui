@@ -23,6 +23,7 @@ import { SavedTripsPage } from './components/pages/SavedTripsPage';
 import { SettingsPage } from './components/pages/SettingsPage';
 import { AuthProvider, useAuth } from './lib/AuthContext';
 import { LandingSignInModal } from './components/landing/LandingSignInModal';
+import { AppFooter } from './components/AppFooter';
 import { fetchTrips, createTrip, updateTrip, deleteTrip as deleteTripApi } from './lib/api';
 import AOS from 'aos';
 
@@ -279,8 +280,8 @@ function AppInner() {
           onNavigate={(page) => setActivePage(page as ActivePage)}
         />
       ) : (
-        /* Collision-Free App Shell: Content column transitions with sidebar collapse state */
-        <div className="flex-1 flex min-h-screen relative">
+        /* Collision-Free App Shell: Golden Hour Theme Scoped with Smooth Column Transitions */
+        <div className="app-theme flex-1 flex flex-col min-h-screen relative bg-[#F6EFE6] text-[#14213D] selection:bg-[#E76F51]/20 selection:text-[#14213D]">
           <div
             className={`flex-1 flex flex-col min-w-0 transition-all duration-300 ${
               sidebarCollapsed ? 'lg:pl-20' : 'lg:pl-72'
@@ -298,9 +299,11 @@ function AppInner() {
               onOpenAuthModal={() => setAuthModalOpen(true)}
             />
 
-
-            {/* Main App Page Content Area */}
-            <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full min-w-0">
+            {/* Main App Page Content Area with Smooth Page Transition */}
+            <main
+              key={activePage}
+              className="gh-page-enter flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full min-w-0"
+            >
               {activePage === 'dashboard' && (
                 <DashboardPage
                   trip={activeTrip}
@@ -335,97 +338,103 @@ function AppInner() {
                 />
               )}
 
-            {activePage === 'flights' && (
-              <FlightsPage
-                trip={activeTrip}
-                currency={currency}
-                onNavigate={(page) => setActivePage(page as ActivePage)}
-                onUpdateTrip={handleUpdateTrip}
-              />
-            )}
+              {activePage === 'flights' && (
+                <FlightsPage
+                  trip={activeTrip}
+                  currency={currency}
+                  onNavigate={(page) => setActivePage(page as ActivePage)}
+                  onUpdateTrip={handleUpdateTrip}
+                />
+              )}
 
-            {activePage === 'hotels' && (
-              <HotelsPage
-                trip={activeTrip}
-                currency={currency}
-                onNavigate={(page) => setActivePage(page as ActivePage)}
-              />
-            )}
+              {activePage === 'hotels' && (
+                <HotelsPage
+                  trip={activeTrip}
+                  currency={currency}
+                  onNavigate={(page) => setActivePage(page as ActivePage)}
+                />
+              )}
 
-            {activePage === 'budget' && (
-              <BudgetPage
-                trip={activeTrip}
-                currency={currency}
-                onUpdateItems={handleUpdateTripBudget}
-              />
-            )}
+              {activePage === 'budget' && (
+                <BudgetPage
+                  trip={activeTrip}
+                  currency={currency}
+                  onUpdateItems={handleUpdateTripBudget}
+                />
+              )}
 
-            {activePage === 'agents' && (
-              <AgentCenterPage
-                trip={activeTrip}
-                currency={currency}
-                onNavigate={(page) => setActivePage(page as ActivePage)}
-              />
-            )}
+              {activePage === 'agents' && (
+                <AgentCenterPage
+                  trip={activeTrip}
+                  currency={currency}
+                  onNavigate={(page) => setActivePage(page as ActivePage)}
+                />
+              )}
 
-            {activePage === 'weather' && (
-              <WeatherSafetyPage trip={activeTrip} />
-            )}
+              {activePage === 'weather' && (
+                <WeatherSafetyPage trip={activeTrip} />
+              )}
 
-            {activePage === 'chat' && (
-              <ConciergeChatPage
-                trip={activeTrip}
-                currency={currency}
-                onUpdateTrip={handleUpdateTrip}
-                onNavigate={(page, params) => {
-                  if (params?.dayNumber) {
-                    setItineraryDay(params.dayNumber);
-                  }
-                  setActivePage(page as ActivePage);
-                  if (params?.targetId) {
-                    setTimeout(() => {
-                      const el = document.getElementById(params.targetId!);
-                      if (el) {
-                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                    }, 350);
-                  }
-                }}
-                allTrips={trips}
-                onSelectTrip={handleSelectTrip}
-              />
-            )}
+              {activePage === 'chat' && (
+                <ConciergeChatPage
+                  trip={activeTrip}
+                  currency={currency}
+                  onUpdateTrip={handleUpdateTrip}
+                  onNavigate={(page, params) => {
+                    if (params?.dayNumber) {
+                      setItineraryDay(params.dayNumber);
+                    }
+                    setActivePage(page as ActivePage);
+                    if (params?.targetId) {
+                      setTimeout(() => {
+                        const el = document.getElementById(params.targetId!);
+                        if (el) {
+                          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }, 350);
+                    }
+                  }}
+                  allTrips={trips}
+                  onSelectTrip={handleSelectTrip}
+                />
+              )}
 
-            {activePage === 'documents' && (
-              <DocumentsPage
-                trip={activeTrip}
-                onUpdateTripDocuments={handleUpdateTripDocuments}
-              />
-            )}
+              {activePage === 'documents' && (
+                <DocumentsPage
+                  trip={activeTrip}
+                  onUpdateTripDocuments={handleUpdateTripDocuments}
+                />
+              )}
 
-            {activePage === 'saved' && (
-              <SavedTripsPage
-                trips={trips}
-                activeTripId={activeTrip.id}
-                currency={currency}
-                onSelectTrip={handleSelectTrip}
-                onOpenPlanner={() => setActivePage('planner')}
-                onDeleteTrip={handleDeleteTrip}
-              />
-            )}
+              {activePage === 'saved' && (
+                <SavedTripsPage
+                  trips={trips}
+                  activeTripId={activeTrip.id}
+                  currency={currency}
+                  onSelectTrip={handleSelectTrip}
+                  onOpenPlanner={() => setActivePage('planner')}
+                  onDeleteTrip={handleDeleteTrip}
+                />
+              )}
 
-            {activePage === 'settings' && (
-              <SettingsPage
-                currency={currency}
-                onCurrencyChange={handleCurrencyChange}
-                onResetData={handleResetData}
-                onOpenAuthModal={() => setAuthModalOpen(true)}
-              />
-            )}
-          </main>
+              {activePage === 'settings' && (
+                <SettingsPage
+                  currency={currency}
+                  onCurrencyChange={handleCurrencyChange}
+                  onResetData={handleResetData}
+                  onOpenAuthModal={() => setAuthModalOpen(true)}
+                />
+              )}
+            </main>
+
+            {/* In-App Golden Hour Footer */}
+            <AppFooter
+              onNavigate={(page) => setActivePage(page)}
+              activeTrip={activeTrip}
+            />
+          </div>
         </div>
-      </div>
-    )}
+      )}
 
       {/* Global Quick Plan Modal Dialog */}
       {quickPlanOpen && (

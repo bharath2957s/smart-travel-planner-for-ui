@@ -149,22 +149,22 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
         </div>
       )}
 
-      {/* ================= QUICK ACTIONS BAR (Glassmorphism & Neumorphic Buttons) ================= */}
+      {/* ================= QUICK ACTIONS BAR (Golden Hour Scoped Controls) ================= */}
       <section
         data-aos="fade-down"
         data-aos-duration="500"
-        className="glass-panel rounded-2xl p-3 sm:p-4 flex flex-wrap items-center justify-between gap-3 shadow-sm"
+        className="bg-white rounded-2xl p-3 sm:p-4 flex flex-wrap items-center justify-between gap-3 border border-[rgba(20,33,61,0.12)] shadow-[0_2px_8px_rgba(20,33,61,0.06)]"
       >
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#0891B2] to-[#7C3AED] flex items-center justify-center text-white shadow-2xs shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-[#14213D] text-[#D4A24C] flex items-center justify-center shadow-xs shrink-0">
             <span className="material-symbols-outlined text-lg">explore</span>
           </div>
           <div>
-            <h2 className="text-xs font-bold text-[#0F172A] uppercase tracking-wider">
+            <h2 className="text-xs font-bold text-[#14213D] uppercase tracking-wider">
               Autonomous Travel Console
             </h2>
-            <p className="text-[11px] text-[#64748B]">
-              Active: <strong className="text-[#0891B2]">{trip.destination}</strong> ({trip.durationDays} Days · {trip.travelersCount} Guests)
+            <p className="text-[11px] text-[#6B6F80]">
+              Active: <strong className="text-[#2A9D8F]">{trip.destination}</strong> ({trip.durationDays} Days · {trip.travelersCount} Guests)
             </p>
           </div>
         </div>
@@ -174,7 +174,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
           <button
             type="button"
             onClick={() => (onOpenQuickPlan ? onOpenQuickPlan() : onNavigate?.('planner'))}
-            className="px-3.5 py-2 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all"
+            className="px-3.5 py-2 rounded-xl gh-btn-primary text-xs font-semibold shadow-xs flex items-center gap-1.5 transition-all cursor-pointer"
             title="Create a new custom travel plan with multi-agent AI"
           >
             <span className="material-symbols-outlined text-sm">auto_awesome</span>
@@ -184,27 +184,27 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
           <button
             type="button"
             onClick={() => (onNavigateToFlights ? onNavigateToFlights() : onNavigate?.('flights'))}
-            className="px-3 py-2 rounded-xl neu-raised text-[#0F172A] hover:text-[#0891B2] text-xs font-semibold flex items-center gap-1.5 transition-all"
+            className="px-3 py-2 rounded-xl gh-btn-secondary text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
             title="Compare commercial flights and transit routes"
           >
-            <span className="material-symbols-outlined text-sm text-[#0891B2]">flight</span>
+            <span className="material-symbols-outlined text-sm text-[#2A9D8F]">flight</span>
             <span>Flights & Routes</span>
           </button>
 
           <button
             type="button"
             onClick={() => (onNavigateToChat ? onNavigateToChat() : onNavigate?.('chat'))}
-            className="px-3 py-2 rounded-xl neu-raised text-[#0F172A] hover:text-[#7C3AED] text-xs font-semibold flex items-center gap-1.5 transition-all"
+            className="px-3 py-2 rounded-xl gh-btn-secondary text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
             title="Open conversational concierge"
           >
-            <span className="material-symbols-outlined text-sm text-[#7C3AED]">smart_toy</span>
+            <span className="material-symbols-outlined text-sm text-[#D4A24C]">smart_toy</span>
             <span>AI Concierge</span>
           </button>
 
           <button
             type="button"
             onClick={() => onNavigate?.('globe')}
-            className="p-2 rounded-xl neu-raised text-[#64748B] hover:text-[#0891B2] transition-all"
+            className="p-2 rounded-xl gh-btn-secondary text-[#6B6F80] hover:text-[#14213D] transition-all cursor-pointer"
             title="Open 3D Earth Explorer"
             aria-label="3D Earth Explorer"
           >
@@ -219,32 +219,32 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
         <article
           data-aos="fade-up"
           data-aos-duration="600"
-          className="lg:col-span-8 bg-white rounded-3xl border border-[#E2E8F0] shadow-sm overflow-hidden flex flex-col justify-between group relative"
+          className="lg:col-span-8 bg-white rounded-2xl border border-[rgba(20,33,61,0.12)] shadow-[0_2px_8px_rgba(20,33,61,0.06)] overflow-hidden flex flex-col justify-between group relative"
         >
           {/* Hero Photograph with Real Place Component */}
-          <div className="relative h-60 sm:h-72 w-full overflow-hidden bg-slate-900">
+          <div className="relative h-60 sm:h-72 w-full overflow-hidden bg-[#14213D] gh-img-container">
             <RealPlacePhoto
               placeName={trip.destination}
               destination={trip.destination}
               aspectRatio="h-full"
-              className="w-full h-full"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               alt={`Scenic view of ${trip.destination}`}
             />
             {/* Scrim Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/30 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#14213D]/95 via-[#14213D]/40 to-transparent pointer-events-none" />
 
             {/* Top Pills */}
             <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full glass-control text-[#0F172A] font-mono text-xs uppercase font-bold tracking-wider">
+                <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#14213D] font-mono text-xs uppercase font-bold tracking-wider shadow-xs">
                   {trip.confNumber}
                 </span>
-                <span className="px-3 py-1 rounded-full bg-[#0891B2]/90 text-white text-xs font-semibold capitalize backdrop-blur-xs">
+                <span className="px-3 py-1 rounded-full gh-badge-gold text-xs font-semibold capitalize backdrop-blur-xs">
                   {trip.style} Odyssey
                 </span>
               </div>
-              <span className="px-3 py-1 rounded-full glass-control text-emerald-800 text-xs font-bold flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="px-3 py-1 rounded-full bg-white/95 text-[#2A9D8F] text-xs font-bold flex items-center gap-1 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#2A9D8F] animate-pulse" />
                 <span>Confirmed</span>
               </span>
             </div>
@@ -252,13 +252,13 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
             {/* Bottom Header Overlay */}
             <div className="absolute bottom-4 left-4 right-4 z-10 text-white flex flex-col sm:flex-row sm:items-end justify-between gap-3">
               <div>
-                <p className="text-xs uppercase tracking-widest text-cyan-300 font-bold">
+                <p className="text-xs uppercase tracking-widest text-[#D4A24C] font-bold">
                   {trip.origin.split(',')[0]} ➔ {trip.destination.split(',')[0]}
                 </p>
                 <h1 className="font-serif-heading text-xl sm:text-2xl md:text-3xl font-bold leading-tight drop-shadow-xs">
                   {trip.title}
                 </h1>
-                <p className="text-xs text-slate-200 mt-1 font-medium">
+                <p className="text-xs text-white/80 mt-1 font-medium">
                   {trip.startDate} to {trip.endDate} · {trip.durationDays} Days · {trip.travelersCount} Traveler{trip.travelersCount > 1 ? 's' : ''}
                 </p>
               </div>
@@ -267,7 +267,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
                 <button
                   type="button"
                   onClick={() => (onNavigateToItinerary ? onNavigateToItinerary() : onNavigate?.('itinerary'))}
-                  className="px-4 py-2 rounded-xl bg-white text-[#0F172A] hover:bg-slate-100 font-bold text-xs shadow-md transition-all flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-xl gh-btn-primary font-bold text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
                 >
                   <span>Explore Itinerary</span>
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -277,24 +277,24 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
           </div>
 
           {/* Card Footer Bar: Pacing, Transit, Stays Telemetry */}
-          <div className="p-4 bg-white border-t border-[#E2E8F0] grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+          <div className="p-4 bg-white border-t border-[rgba(20,33,61,0.12)] grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
             <div>
-              <span className="text-[#64748B] block text-[10px] uppercase tracking-wider font-semibold">Origin Hub</span>
-              <strong className="text-[#0F172A] font-bold block truncate">{trip.origin}</strong>
+              <span className="text-[#6B6F80] block text-[10px] uppercase tracking-wider font-semibold">Origin Hub</span>
+              <strong className="text-[#14213D] font-bold block truncate">{trip.origin}</strong>
             </div>
             <div>
-              <span className="text-[#64748B] block text-[10px] uppercase tracking-wider font-semibold">Destination</span>
-              <strong className="text-[#0891B2] font-bold block truncate">{trip.destination}</strong>
+              <span className="text-[#6B6F80] block text-[10px] uppercase tracking-wider font-semibold">Destination</span>
+              <strong className="text-[#2A9D8F] font-bold block truncate">{trip.destination}</strong>
             </div>
             <div>
-              <span className="text-[#64748B] block text-[10px] uppercase tracking-wider font-semibold">Rhythm Pacing</span>
-              <span className="font-bold text-[#0F172A]">
+              <span className="text-[#6B6F80] block text-[10px] uppercase tracking-wider font-semibold">Rhythm Pacing</span>
+              <span className="font-bold text-[#14213D]">
                 {trip.pacing?.relaxedPercent || 65}% Relaxed / {trip.pacing?.activePercent || 35}% Active
               </span>
             </div>
             <div>
-              <span className="text-[#64748B] block text-[10px] uppercase tracking-wider font-semibold">Total Budget Cap</span>
-              <span className="font-bold text-[#0891B2] tabular-nums font-mono">
+              <span className="text-[#6B6F80] block text-[10px] uppercase tracking-wider font-semibold">Total Budget Cap</span>
+              <span className="font-bold text-[#D4A24C] tabular-nums font-mono">
                 {formatCurrency(totalCap, currency)}
               </span>
             </div>

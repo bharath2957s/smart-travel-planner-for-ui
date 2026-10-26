@@ -895,7 +895,7 @@ const upload = multer({
 const multipartUploadMiddleware = (req: Request, res: Response, next: any) => {
   const contentType = req.headers['content-type'] || '';
   if (contentType.includes('multipart/form-data')) {
-    upload.any()(req, res, (err: any) => {
+    upload.any()(req as any, res as any, (err: any) => {
       if (err) {
         if (err.code === 'LIMIT_FILE_SIZE') {
           return res.status(413).json({

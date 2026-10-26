@@ -122,7 +122,7 @@ export const HotelsPage: React.FC<HotelsPageProps> = ({
             href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2.5 rounded-xl bg-[#0891B2] hover:bg-[#0e7490] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-xs"
+            className="px-4 py-2.5 rounded-xl gh-btn-primary text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
           >
             <span className="material-symbols-outlined text-sm">open_in_new</span>
             <span>Booking.com</span>
@@ -131,39 +131,39 @@ export const HotelsPage: React.FC<HotelsPageProps> = ({
             href={googleHotelsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2.5 rounded-xl bg-white hover:bg-[#F8FAFC] text-[#0F172A] border border-[#CBD5E1] text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-2xs"
+            className="px-4 py-2.5 rounded-xl gh-btn-secondary text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
           >
-            <span className="material-symbols-outlined text-sm">hotel</span>
+            <span className="material-symbols-outlined text-sm text-[#D4A24C]">hotel</span>
             <span>Google Hotels</span>
           </a>
           <a
             href={airbnbUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2.5 rounded-xl bg-white hover:bg-[#F8FAFC] text-[#0F172A] border border-[#CBD5E1] text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-2xs"
+            className="px-4 py-2.5 rounded-xl gh-btn-secondary text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
           >
-            <span className="material-symbols-outlined text-sm">home</span>
+            <span className="material-symbols-outlined text-sm text-[#E76F51]">home</span>
             <span>Airbnb</span>
           </a>
         </div>
       </header>
 
       {/* Honest Status Banner */}
-      <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+      <div className="p-4 rounded-2xl bg-[#FBF6EE] border border-[rgba(20,33,61,0.12)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-xs">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-[#0891B2] text-white flex items-center justify-center shrink-0">
+          <div className="w-8 h-8 rounded-xl bg-[#14213D] text-[#D4A24C] flex items-center justify-center shrink-0 shadow-xs">
             <span className="material-symbols-outlined text-base">verified</span>
           </div>
           <div>
-            <strong className="text-[#0F172A] block font-semibold">
+            <strong className="text-[#14213D] block font-semibold">
               Transparent Hotel Search & Pricing
             </strong>
-            <span className="text-[#64748B] block text-[11px]">
+            <span className="text-[#6B6F80] block text-[11px]">
               Nightly rates are calculated deterministically for {nights} nights. Click any stay to search live room availability and verify current taxes and cancellation policies directly with the provider.
             </span>
           </div>
         </div>
-        <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase tracking-wider self-start sm:self-center shrink-0">
+        <span className="px-3 py-1 rounded-full gh-badge-teal text-[10px] font-bold uppercase tracking-wider self-start sm:self-center shrink-0">
           Live Search Connected
         </span>
       </div>
@@ -174,15 +174,15 @@ export const HotelsPage: React.FC<HotelsPageProps> = ({
         <section data-aos="fade-up" data-aos-duration="600" className="lg:col-span-8 space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <h2 className="font-serif-heading text-lg font-bold text-[#0F172A]">
+              <h2 className="font-serif-heading text-lg font-bold text-[#14213D]">
                 Recommended Stays in {trip.destination.split(',')[0]}
               </h2>
-              <span className="px-2.5 py-0.5 rounded-full bg-[#EFF6FF] text-[#0891B2] text-[10px] font-bold">
+              <span className="px-2.5 py-0.5 rounded-full gh-badge-gold text-[10px] font-bold">
                 {activeStays.length} Option{activeStays.length > 1 ? 's' : ''}
               </span>
             </div>
-            <span className="text-xs text-[#64748B]">
-              Check-in: <strong className="text-[#0F172A] font-mono">{trip.startDate}</strong>
+            <span className="text-xs text-[#6B6F80]">
+              Check-in: <strong className="text-[#14213D] font-mono">{trip.startDate}</strong>
             </span>
           </div>
 
@@ -191,22 +191,22 @@ export const HotelsPage: React.FC<HotelsPageProps> = ({
             return (
               <article
                 key={stay.id || idx}
-                className="bg-white rounded-3xl border border-[#E2E8F0] shadow-sm hover:border-[#0891B2] transition-all overflow-hidden flex flex-col md:flex-row justify-between"
+                className="bg-white rounded-2xl border border-[rgba(20,33,61,0.12)] shadow-[0_2px_8px_rgba(20,33,61,0.06)] hover:shadow-[0_10px_30px_rgba(20,33,61,0.10)] transition-all overflow-hidden flex flex-col md:flex-row justify-between group"
               >
                 {/* Stay Image */}
-                <div className="md:w-5/12 h-56 md:h-auto relative overflow-hidden bg-slate-900 group">
+                <div className="md:w-5/12 h-56 md:h-auto relative overflow-hidden bg-[#EBDCC6] gh-img-container">
                   <img
                     src={stay.image}
                     alt={stay.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-3 left-3 flex gap-2">
-                    <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[10px] font-bold text-[#0F172A] uppercase tracking-wider">
+                    <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[10px] font-bold text-[#D4A24C] border border-[rgba(212,162,76,0.3)] shadow-xs uppercase tracking-wider">
                       ★ {stay.rating} Rating
                     </span>
                   </div>
                   <div className="absolute bottom-3 left-3 right-3 text-white">
-                    <span className="text-[10px] uppercase font-mono text-[#7DD3FC] tracking-wider block">
+                    <span className="text-[10px] uppercase font-mono text-[#D4A24C] tracking-wider block drop-shadow-xs">
                       {stay.subLocation}
                     </span>
                   </div>
@@ -216,18 +216,18 @@ export const HotelsPage: React.FC<HotelsPageProps> = ({
                 <div className="p-6 md:w-7/12 flex flex-col justify-between space-y-4">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded gh-badge-teal">
                         {stay.tagline}
                       </span>
-                      <span className="text-xs text-[#64748B] font-mono">
+                      <span className="text-xs text-[#6B6F80] font-mono">
                         {rooms} Room{rooms > 1 ? 's' : ''}
                       </span>
                     </div>
 
-                    <h3 className="font-serif-heading text-xl font-bold text-[#0F172A]">
+                    <h3 className="font-serif-heading text-xl font-bold text-[#14213D]">
                       {stay.name}
                     </h3>
-                    <p className="text-xs text-[#64748B] leading-relaxed">
+                    <p className="text-xs text-[#6B6F80] leading-relaxed">
                       {stay.stateroomDesc}
                     </p>
 
@@ -235,9 +235,9 @@ export const HotelsPage: React.FC<HotelsPageProps> = ({
                       {stay.inclusions.map((inc, i) => (
                         <span
                           key={i}
-                          className="px-2.5 py-1 rounded-lg bg-[#F8FAFC] text-[11px] text-[#475569] border border-[#E2E8F0] flex items-center gap-1"
+                          className="px-2.5 py-1 rounded-lg bg-[#FBF6EE] text-[11px] text-[#14213D] border border-[rgba(20,33,61,0.08)] flex items-center gap-1"
                         >
-                          <span className="material-symbols-outlined text-xs text-[#0891B2]">check</span>
+                          <span className="material-symbols-outlined text-xs text-[#2A9D8F]">check</span>
                           <span>{inc}</span>
                         </span>
                       ))}
@@ -245,16 +245,16 @@ export const HotelsPage: React.FC<HotelsPageProps> = ({
                   </div>
 
                   {/* Pricing and Action */}
-                  <div className="pt-4 border-t border-[#F1F5F9] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="pt-4 border-t border-[rgba(20,33,61,0.08)] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
                       <div className="flex items-baseline gap-1.5">
-                        <span className="font-serif-heading text-xl font-bold font-mono text-[#0F172A]">
+                        <span className="font-serif-heading text-xl font-bold font-mono text-[#14213D]">
                           {formatCurrency(stay.pricePerNight, currency)}
                         </span>
-                        <span className="text-xs text-[#64748B]">/ night</span>
+                        <span className="text-xs text-[#6B6F80]">/ night</span>
                       </div>
-                      <span className="text-[11px] text-[#64748B] block mt-0.5">
-                        Total {nights}N: <strong className="font-mono text-[#0891B2]">{formatCurrency(totalStayPrice, currency)}</strong>
+                      <span className="text-[11px] text-[#6B6F80] block mt-0.5">
+                        Total {nights}N: <strong className="font-mono text-[#2A9D8F]">{formatCurrency(totalStayPrice, currency)}</strong>
                       </span>
                     </div>
 
@@ -262,7 +262,7 @@ export const HotelsPage: React.FC<HotelsPageProps> = ({
                       href={stay.bookingUrl || bookingUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 rounded-xl bg-[#0891B2] hover:bg-[#0e7490] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all shadow-xs"
+                      className="px-5 py-2.5 rounded-xl gh-btn-primary text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer"
                     >
                       <span>Check Live Availability</span>
                       <span className="material-symbols-outlined text-sm">open_in_new</span>

@@ -145,11 +145,11 @@ export const OverviewRouteMap: React.FC<OverviewRouteMapProps> = ({
       className: 'custom-origin-marker',
       html: `
         <div class="relative flex items-center justify-center cursor-pointer" style="transform: translate(-50%, -100%);">
-          <div class="px-2.5 py-1 rounded-full bg-slate-900 text-white font-mono text-[10px] font-bold shadow-lg flex items-center gap-1.5 whitespace-nowrap border border-cyan-400">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          <div class="px-2.5 py-1 rounded-full bg-[#14213D] text-[#FBF6EE] font-mono text-[10px] font-bold shadow-lg flex items-center gap-1.5 whitespace-nowrap border border-[#2A9D8F]">
+            <span class="w-2 h-2 rounded-full bg-[#2A9D8F] animate-pulse"></span>
             <span>ORIGIN · ${trip.origin.split(',')[0]}</span>
           </div>
-          <div class="w-3 h-3 bg-slate-900 border-r border-b border-cyan-400 transform rotate-45 -mt-1.5"></div>
+          <div class="w-3 h-3 bg-[#14213D] border-r border-b border-[#2A9D8F] transform rotate-45 -mt-1.5"></div>
         </div>
       `,
       iconSize: [120, 36],
@@ -158,23 +158,23 @@ export const OverviewRouteMap: React.FC<OverviewRouteMapProps> = ({
 
     const originMarker = L.marker(originLatLng, { icon: originIcon }).addTo(layersGroupRef.current);
     originMarker.bindPopup(`
-      <div class="p-2.5 font-sans">
-        <span class="text-[10px] font-bold text-cyan-700 uppercase tracking-wider block">Departure Hub</span>
-        <h4 class="font-bold text-xs text-slate-900">${trip.origin}</h4>
-        <p class="text-[11px] text-slate-500 mt-0.5">Coordinates: ${originCoords.lat.toFixed(4)}°, ${originCoords.lon.toFixed(4)}°</p>
+      <div class="p-3 font-sans bg-white rounded-[14px]">
+        <span class="text-[10px] font-bold text-[#2A9D8F] uppercase tracking-wider block">Departure Hub</span>
+        <h4 class="font-serif-heading font-bold text-xs text-[#14213D]">${trip.origin}</h4>
+        <p class="text-[11px] text-[#6B6F80] mt-0.5 font-mono">Coordinates: ${originCoords.lat.toFixed(4)}°, ${originCoords.lon.toFixed(4)}°</p>
       </div>
     `);
 
-    // 2. Destination Marker (Violet arrival pin)
+    // 2. Destination Marker (Terracotta arrival pin)
     const destIcon = L.divIcon({
       className: 'custom-dest-marker',
       html: `
         <div class="relative flex items-center justify-center cursor-pointer" style="transform: translate(-50%, -100%);">
-          <div class="px-2.5 py-1 rounded-full bg-purple-900 text-white font-mono text-[10px] font-bold shadow-lg flex items-center gap-1.5 whitespace-nowrap border border-purple-400">
-            <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+          <div class="px-2.5 py-1 rounded-full bg-[#14213D] text-[#FBF6EE] font-mono text-[10px] font-bold shadow-lg flex items-center gap-1.5 whitespace-nowrap border border-[#E76F51]">
+            <span class="w-2 h-2 rounded-full bg-[#E76F51] animate-ping"></span>
             <span>DESTINATION · ${trip.destination.split(',')[0]}</span>
           </div>
-          <div class="w-3 h-3 bg-purple-900 border-r border-b border-purple-400 transform rotate-45 -mt-1.5"></div>
+          <div class="w-3 h-3 bg-[#14213D] border-r border-b border-[#E76F51] transform rotate-45 -mt-1.5"></div>
         </div>
       `,
       iconSize: [140, 36],
@@ -183,10 +183,10 @@ export const OverviewRouteMap: React.FC<OverviewRouteMapProps> = ({
 
     const destMarker = L.marker(destLatLng, { icon: destIcon }).addTo(layersGroupRef.current);
     destMarker.bindPopup(`
-      <div class="p-2.5 font-sans">
-        <span class="text-[10px] font-bold text-purple-700 uppercase tracking-wider block">Arrival Destination</span>
-        <h4 class="font-bold text-xs text-slate-900">${trip.destination}</h4>
-        <p class="text-[11px] text-slate-500 mt-0.5">Duration: ${trip.durationDays} Days · ${trip.travelersCount} Guests</p>
+      <div class="p-3 font-sans bg-white rounded-[14px]">
+        <span class="text-[10px] font-bold text-[#E76F51] uppercase tracking-wider block">Arrival Destination</span>
+        <h4 class="font-serif-heading font-bold text-xs text-[#14213D]">${trip.destination}</h4>
+        <p class="text-[11px] text-[#6B6F80] mt-0.5">Duration: ${trip.durationDays} Days · ${trip.travelersCount} Guests</p>
       </div>
     `);
 
@@ -195,33 +195,33 @@ export const OverviewRouteMap: React.FC<OverviewRouteMapProps> = ({
 
     // Outer glow polyline
     L.polyline(arcPoints, {
-      color: '#0891B2',
+      color: '#D4A24C',
       weight: 6,
       opacity: 0.25,
     }).addTo(layersGroupRef.current);
 
     // Inner crisp dashed transit polyline
     const routeLine = L.polyline(arcPoints, {
-      color: '#0891B2',
+      color: '#2A9D8F',
       weight: 3.5,
-      opacity: 0.9,
+      opacity: 0.95,
       dashArray: '8, 8',
     }).addTo(layersGroupRef.current);
 
     routeLine.bindPopup(`
-      <div class="w-56 p-3 bg-white font-sans space-y-1.5">
-        <div class="flex items-center justify-between pb-1 border-b border-slate-100">
-          <span class="text-[10px] font-bold text-cyan-700 uppercase">${transitMode}</span>
-          <span class="text-[10px] font-mono text-slate-400">${distanceKm} KM</span>
+      <div class="w-60 p-3.5 bg-white rounded-[16px] font-sans space-y-2 border border-[rgba(20,33,61,0.12)] shadow-[0_10px_30px_rgba(20,33,61,0.10)]">
+        <div class="flex items-center justify-between pb-1 border-b border-[rgba(20,33,61,0.08)]">
+          <span class="text-[10px] font-bold text-[#2A9D8F] uppercase">${transitMode}</span>
+          <span class="text-[10px] font-mono text-[#D4A24C] font-bold">${distanceKm} KM</span>
         </div>
-        <p class="font-bold text-xs text-slate-900">${operatorName}</p>
-        <div class="flex items-center justify-between text-[11px] text-slate-600">
+        <p class="font-serif-heading font-bold text-xs text-[#14213D]">${operatorName}</p>
+        <div class="flex items-center justify-between text-[11px] text-[#6B6F80]">
           <span>Est. Duration:</span>
-          <span class="font-semibold">${durationStr}</span>
+          <span class="font-semibold text-[#14213D]">${durationStr}</span>
         </div>
-        <div class="flex items-center justify-between text-[11px] text-slate-600">
+        <div class="flex items-center justify-between text-[11px] text-[#6B6F80]">
           <span>Total Fare:</span>
-          <span class="font-bold text-cyan-800">${formatCurrency(fareAmt, currency)}</span>
+          <span class="font-bold text-[#D4A24C] font-mono">${formatCurrency(fareAmt, currency)}</span>
         </div>
       </div>
     `);

@@ -138,20 +138,23 @@ export const ItineraryInteractiveMap: React.FC<ItineraryInteractiveMapProps> = (
         const photoMeta = getLocalVerifiedPhoto(act.placeName || act.title) || getLocalVerifiedPhoto(destination);
         const photoUrl = photoMeta?.thumbUrl || act.image || 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=400';
 
-        // Custom HTML Marker Icon with Day color and sequence index
+        // Pin colors: Teal for standard pins (#2A9D8F), Terracotta for selected pin (#E76F51)
+        const pinBgColor = isSelected ? '#E76F51' : '#2A9D8F';
+
+        // Custom HTML Marker Icon
         const markerHtml = `
           <div class="relative group cursor-pointer" style="transform: translate(-50%, -50%);">
             ${
               isSelected
-                ? `<span class="absolute -inset-2 rounded-full animate-ping opacity-75" style="background-color: ${dayColor};"></span>`
+                ? `<span class="absolute -inset-2 rounded-full animate-ping opacity-75" style="background-color: #E76F51;"></span>`
                 : ''
             }
             <div class="relative flex items-center justify-center w-8 h-8 rounded-full border-2 border-white shadow-md text-white font-mono font-bold text-xs transition-transform duration-200 group-hover:scale-115 ${
-              isSelected ? 'scale-120 ring-3 ring-cyan-400' : ''
-            }" style="background-color: ${dayColor};">
+              isSelected ? 'scale-120 ring-4 ring-[#E76F51]/30' : ''
+            }" style="background-color: ${pinBgColor};">
               <span>${actIdx + 1}</span>
             </div>
-            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-slate-900/90 text-white text-[10px] font-semibold px-1.5 py-0.5 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#14213D] text-[#FBF6EE] text-[10px] font-semibold px-2 py-0.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
               ${act.title.length > 20 ? act.title.slice(0, 18) + '...' : act.title}
             </div>
           </div>
@@ -168,32 +171,32 @@ export const ItineraryInteractiveMap: React.FC<ItineraryInteractiveMapProps> = (
         const marker = L.marker(latLng, { icon }).addTo(markersLayerRef.current!);
         markersMapRef.current.set(act.id, marker);
 
-        // Rich interactive popup with real photo, verified badge, time, and cost
+        // White rounded info cards with Golden Hour typography & badges
         const popupContent = `
-          <div class="w-64 p-0 rounded-2xl overflow-hidden font-sans">
-            <div class="relative h-28 w-full bg-slate-900">
+          <div class="w-68 p-0 rounded-[16px] overflow-hidden font-sans bg-white shadow-[0_10px_30px_rgba(20,33,61,0.12)] border border-[rgba(20,33,61,0.12)]">
+            <div class="relative h-28 w-full bg-[#EBDCC6]">
               <img src="${photoUrl}" alt="${act.title}" class="w-full h-full object-cover" />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#14213D]/80 via-transparent to-transparent"></div>
               <div class="absolute top-2 left-2 flex gap-1">
-                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold text-white uppercase" style="background-color: ${dayColor};">
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold text-white uppercase shadow-2xs" style="background-color: ${pinBgColor};">
                   Day ${day.dayNumber} · Stop ${actIdx + 1}
                 </span>
-                <span class="px-2 py-0.5 rounded-full bg-white/90 text-slate-800 text-[9px] font-bold uppercase">
+                <span class="px-2 py-0.5 rounded-full bg-white/95 text-[#14213D] text-[9px] font-bold uppercase shadow-2xs">
                   ${act.categoryLabel || act.category}
                 </span>
               </div>
             </div>
-            <div class="p-3 space-y-1.5 bg-white">
-              <h4 class="font-bold text-xs text-slate-900 leading-tight">${act.title}</h4>
-              <p class="text-[11px] text-slate-600 line-clamp-2">${act.description}</p>
-              <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-[10px] font-mono">
-                <span class="text-cyan-700 font-bold">${formatCurrency(act.estimatedCost, currency)}</span>
-                <span class="text-slate-500">${act.duration}</span>
+            <div class="p-3.5 space-y-2 bg-white">
+              <h4 class="font-serif-heading font-bold text-xs text-[#14213D] leading-tight">${act.title}</h4>
+              <p class="text-[11px] text-[#6B6F80] line-clamp-2 leading-relaxed">${act.description}</p>
+              <div class="flex items-center justify-between pt-1.5 border-t border-[rgba(20,33,61,0.08)] text-[10px] font-mono">
+                <span class="text-[#D4A24C] font-bold text-xs">${formatCurrency(act.estimatedCost, currency)}</span>
+                <span class="text-[#6B6F80] font-medium">${act.duration}</span>
               </div>
-              <div class="pt-1 flex items-center justify-between text-[9px] text-slate-400">
+              <div class="pt-1 flex items-center justify-between text-[9px] text-[#8E95A5]">
                 <span>📍 ${act.coordinates?.lat.toFixed(4)}°, ${act.coordinates?.lon.toFixed(4)}°</span>
-                <span class="text-emerald-600 font-bold flex items-center gap-0.5">
-                  <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified
+                <span class="text-[#2A9D8F] font-bold flex items-center gap-0.5">
+                  <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#2A9D8F]"></span> Verified Sight
                 </span>
               </div>
             </div>
